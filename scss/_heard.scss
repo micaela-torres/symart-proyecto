@@ -1,0 +1,21 @@
+.encabezado{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+        &__imagen{
+            width: 400px;
+            margin: 1rem;
+            margin-left: 3rem;
+        }
+        &__texto{
+            align-items: center;
+            margin-left: 5rem;
+        }
+}
+
+.estilos{
+    align-items: center;
+    font-family:'Domine', serif;
+    font-weight: 400;
+}

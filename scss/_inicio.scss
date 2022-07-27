@@ -1,0 +1,22 @@
+.cuerpoinicio{
+    display: flex;
+    flex-direction: row;
+    margin: 3rem;
+
+    &__video{
+        width: 700px;
+        height: auto;
+        @extend .sombras;
+    }
+
+    &__texto{
+        margin-left: 6rem;
+        text-align: center;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        p{
+            text-align: justify;
+            margin-top: 3rem;
+        }
+    }
+}

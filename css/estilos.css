@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  background-image: url(../imagenes/fondo.png);
+  font-family: 'Domine', serif; }
+
+h1 {
+  font-family: 'Domine', serif;
+  font-weight: 700;
+  color: #d97336;
+  text-align: center; }
+
+h2 {
+  font-family: 'Domine', serif;
+  font-weight: 600;
+  color: #a3dfd9;
+  text-align: center; }
+
+h3 {
+  font-family: 'Domine', serif;
+  font-weight: 400;
+  color: black;
+  text-align: justify; }
+
+.sombras, .cuerpoinicio__video {
+  border-radius: 15px;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3); }
+
+.cuerpoinicio {
+  display: flex;
+  flex-direction: row;
+  margin: 3rem; }
+  .cuerpoinicio__video {
+    width: 700px;
+    height: auto; }
+  .cuerpoinicio__texto {
+    margin-left: 6rem;
+    text-align: center;
+    margin-left: 2rem;
+    margin-right: 2rem; }
+    .cuerpoinicio__texto p {
+      text-align: justify;
+      margin-top: 3rem; }
+
+.tarjetadeproductos {
+  margin-left: 100px;
+  margin-right: 100px; }
+
+.encabezado {
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+  .encabezado__imagen {
+    width: 400px;
+    margin: 1rem;
+    margin-left: 3rem; }
+  .encabezado__texto {
+    align-items: center;
+    margin-left: 5rem; }
+
+.estilos {
+  align-items: center;
+  font-family: 'Domine', serif;
+  font-weight: 400; }
