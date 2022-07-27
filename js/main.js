@@ -16,7 +16,7 @@ const producto = [];
 
 const idformulario = document.getElementById("formulariodeproductos");
 
-idformulario.addEventListener("submit", (e) => {
+idformulario.addEventListener("click", (e) => {
     e.preventDefault();
     const codigo = document.getElementById("idcodigo").value;
     const nombre = document.getElementById("idnombre").value;
