@@ -3,11 +3,15 @@
 //Agregando clases
 
 class Productos {
-    constructor (codigo, nombre, marca, precio){
+    constructor (codigo, nombre, cantidad, precio) {
         this.codigo = codigo;
         this.nombre = nombre;
-        this.marca = marca;
+        this.marca = cantidad;
         this.precio = precio;
+    }
+
+    calcularinversion(){
+        return this.cantidad * this.precio ;
     }
 }
 
@@ -20,15 +24,21 @@ idformulario.addEventListener("click", (e) => {
     e.preventDefault();
     const codigo = document.getElementById("idcodigo").value;
     const nombre = document.getElementById("idnombre").value;
-    const marca = document.getElementById("idmarca").value;
+    const cantidad = document.getElementById("idcantidad").value;
     const precio = document.getElementById("idprecio").value;
 
-    const nuevoproductos = new Productos (codigo, nombre, marca, precio);
+    const nuevoproductos = new Productos (codigo, nombre, cantidad, precio);
     
     producto.push(nuevoproductos);
 
     localStorage.setItem("Productos", JSON.stringify(producto));
-    formulariodeproductos.reset();
+    mostrarinversion (nuevoproductos);
 })
 
+const resultado = document.getElementById("infoinversion");
+const mostrarinversion = (nuevoproductos) => {
+    let aux = '';
+    aux += ` <p> Su inversion es de ${nuevoproductos.calcularinversion} </p> `
+    resultado.innerHTML = aux;
+}
 

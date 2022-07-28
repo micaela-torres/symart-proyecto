@@ -56,15 +56,18 @@
         <div>
             <h1> Agregando productos a la venta</h1>
         </div>
+        <div> 
+          <form class="tarjetadeproductos" id = "formulariodeproductos">
+              <input id = "idcodigo" class="form-control form-control-lg" type="number" placeholder="Agregar el codigo del producto" aria-label=".form-control-lg example">
+              <input id = "idnombre" class="form-control form-control-lg" type="text" placeholder="Agregar nombre del producto" aria-label=".form-control-lg example">
+              <input id = "idcantidad" class="form-control form-control-lg"  type="text" placeholder="Agregar la cantidad de productos" aria-label=".form-control-lg example">
+              <input id = "idprecio" class="form-control form-control-lg" type="number" placeholder="Agregar el precio del producto" aria-label=".form-control-lg example">
+              <button type="button" class="btn btn-outline-info">Agregar productos</button>
+          </form>
+        </div>
 
-        <form class="tarjetadeproductos" id = "formulariodeproductos">
-            <input class="form-control form-control-lg" id = "idcodigo" type="number" placeholder="Agregar el codigo del producto" aria-label=".form-control-lg example">
-            <input class="form-control form-control-lg" id = "idnombre" type="text" placeholder="Agregar nombre del producto" aria-label=".form-control-lg example">
-            <input class="form-control form-control-lg" id = "idmarca" type="text" placeholder="Agregar la marca del producto" aria-label=".form-control-lg example">
-            <input class="form-control form-control-lg" id = "idprecio" type="number" placeholder="Agregar el precio del producto" aria-label=".form-control-lg example">
-            <button type="button" class="btn btn-outline-info">Agregar productos</button>
-        </form>
         <button type="button" class="btn btn-outline-warning" id="consulta">Ver productos</button>
+        <div id="infoinversion"></div>
         <div>
             <div id="verconsultas"> </div>
         </div>    
