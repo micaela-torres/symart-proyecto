@@ -6,7 +6,7 @@ class Productos {
     constructor (codigo, nombre, cantidad, precio) {
         this.codigo = codigo;
         this.nombre = nombre;
-        this.marca = cantidad;
+        this.cantidad = cantidad;
         this.precio = precio;
     }
 
@@ -18,9 +18,24 @@ class Productos {
 
 const producto = [];
 
-const idformulario = document.getElementById("formulariodeproductos");
+let idformulario = document.getElementById('formulariodeproductos');
 
-idformulario.addEventListener("click", (e) => {
+idformulario.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const codigo = document.getElementById('idcodigo').value;
+    const nombre = document.getElementById('idnombre').value;
+    const cantidad = document.getElementById('idcantidad').value;
+    const precio = document.getElementById('idprecio').value;
+    
+    const newproducto = new Productos (codigo, nombre, cantidad, precio);
+    producto.push(newproducto);
+    localStorage.setItem('Productos', JSON.stringify(producto));
+    idformulario.reset ();
+
+    mostrarinversion(newproducto);
+})
+/*
+idformulario.addEventListener('click', (e) => {
     e.preventDefault();
     const codigo = document.getElementById("idcodigo").value;
     const nombre = document.getElementById("idnombre").value;
@@ -33,12 +48,29 @@ idformulario.addEventListener("click", (e) => {
 
     localStorage.setItem("Productos", JSON.stringify(producto));
     mostrarinversion (nuevoproductos);
-})
+}) */
 
 const resultado = document.getElementById("infoinversion");
-const mostrarinversion = (nuevoproductos) => {
+const mostrarinversion = (newproducto) => {
     let aux = '';
-    aux += ` <p> Su inversion es de ${nuevoproductos.calcularinversion} </p> `
+    aux += ` <p> Su inversion es de ${newproducto.calcularinversion()} pesos.</p> `;
     resultado.innerHTML = aux;
 }
 
+const botondeconsulta = document.getElementById('consulta');
+const verconsultas = document.getElementById('verconsultas');
+
+botondeconsulta.addEventListener('click', () => {
+    const producto = JSON.parse(localStorage.getItem('Productos'));
+    let aux = '';
+    producto.forEach(newproducto => {
+        aux += `<div class="card" style="width: 18rem;">
+                    <div class="card-body">        
+                        <p class="card-title"> Producto: ${newproducto.nombre} </p>
+                        <p class="card-text"> Codigo: ${newproducto.codigo}</p><hr>
+                    </div>
+                </div>`
+    verconsultas.innerHTML = aux;            
+    });
+
+})

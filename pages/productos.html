@@ -57,18 +57,21 @@
             <h1> Agregando productos a la venta</h1>
         </div>
         <div> 
-          <form class="tarjetadeproductos" id = "formulariodeproductos">
-              <input id = "idcodigo" class="form-control form-control-lg" type="number" placeholder="Agregar el codigo del producto" aria-label=".form-control-lg example">
-              <input id = "idnombre" class="form-control form-control-lg" type="text" placeholder="Agregar nombre del producto" aria-label=".form-control-lg example">
-              <input id = "idcantidad" class="form-control form-control-lg"  type="text" placeholder="Agregar la cantidad de productos" aria-label=".form-control-lg example">
-              <input id = "idprecio" class="form-control form-control-lg" type="number" placeholder="Agregar el precio del producto" aria-label=".form-control-lg example">
-              <button type="button" class="btn btn-outline-info">Agregar productos</button>
+          <form class="tarjetadeproductos" action="" id="formulariodeproductos">
+            <input class="form-control" type="number" placeholder="Ingrese codigo del producto"  id="idcodigo">
+            <input class="form-control" type="text" placeholder="Ingrese nombre del producto"  id="idnombre">
+            <input class="form-control" type="number" placeholder="Ingrese la cantidad de productos"  id="idcantidad">
+            <input class="form-control" type="number" placeholder="Ingrese el precio del producto"  id="idprecio">
+            <button class="btn btn-outline-info">Agregar nuevo producto</button>
           </form>
         </div>
 
-        <button type="button" class="btn btn-outline-warning" id="consulta">Ver productos</button>
-        <div id="infoinversion"></div>
         <div>
+          <div id="infoinversion"></div>
+        </div>
+
+        <button class="btn btn-outline-warning" id="consulta">Ver productos</button>
+        <div class="">
             <div id="verconsultas"> </div>
         </div>    
 
