@@ -31,29 +31,15 @@ idformulario.addEventListener('submit', (e) => {
     producto.push(newproducto);
     localStorage.setItem('Productos', JSON.stringify(producto));
     idformulario.reset ();
-
     mostrarinversion(newproducto);
 })
-/*
-idformulario.addEventListener('click', (e) => {
-    e.preventDefault();
-    const codigo = document.getElementById("idcodigo").value;
-    const nombre = document.getElementById("idnombre").value;
-    const cantidad = document.getElementById("idcantidad").value;
-    const precio = document.getElementById("idprecio").value;
-
-    const nuevoproductos = new Productos (codigo, nombre, cantidad, precio);
-    
-    producto.push(nuevoproductos);
-
-    localStorage.setItem("Productos", JSON.stringify(producto));
-    mostrarinversion (nuevoproductos);
-}) */
 
 const resultado = document.getElementById("infoinversion");
 const mostrarinversion = (newproducto) => {
+    const cliente = (newproducto.cantidad >= 10) ? "Mayorista" : "Minorista";
     let aux = '';
-    aux += ` <p> Su inversion es de ${newproducto.calcularinversion()} pesos.</p> `;
+    aux += ` <p> Su inversion es de ${newproducto.calcularinversion()} pesos.</p> 
+                <p>Usted es un cliente ${cliente}</p>`;
     resultado.innerHTML = aux;
 }
 
@@ -66,11 +52,17 @@ botondeconsulta.addEventListener('click', () => {
     producto.forEach(newproducto => {
         aux += `<div class="card" style="width: 18rem;">
                     <div class="card-body">        
-                        <p class="card-title"> Producto: ${newproducto.nombre} </p>
-                        <p class="card-text"> Codigo: ${newproducto.codigo}</p><hr>
+                        <p class="card-title"> Producto: $${newproducto.nombre} </p>
+                        <p class="card-text"> Codigo: ${newproducto.codigo}</p>
                     </div>
                 </div>`
     verconsultas.innerHTML = aux;            
     });
 
 })
+
+// metodo spread
+
+const marcas = ["Algabo", "Estereo", "Bommetique", "Colgate", "Extralimp", "Iberia"]
+
+console.log (...marcas)
