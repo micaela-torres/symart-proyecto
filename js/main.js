@@ -32,10 +32,18 @@ idformulario.addEventListener('submit', (e) => {
     localStorage.setItem('Productos', JSON.stringify(producto));
     idformulario.reset ();
     mostrarinversion(newproducto);
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Su producto fue agregado',
+        showConfirmButton: false,
+        timer: 1500
+      })
 })
 
 const resultado = document.getElementById("infoinversion");
 const mostrarinversion = (newproducto) => {
+    //operador
     const cliente = (newproducto.cantidad >= 10) ? "Mayorista" : "Minorista";
     let aux = '';
     aux += ` <p> Su inversion es de ${newproducto.calcularinversion()} pesos.</p> 
