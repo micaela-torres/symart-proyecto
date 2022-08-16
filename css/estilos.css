@@ -29,6 +29,9 @@ h3 {
   border-radius: 15px;
   box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3); }
 
+img {
+  width: 45px; }
+
 .cuerpoinicio {
   display: flex;
   flex-direction: row;
@@ -46,8 +49,10 @@ h3 {
       margin-top: 3rem; }
 
 .tarjetadeproductos {
-  margin-left: 100px;
-  margin-right: 100px; }
+  width: 150px;
+  display: flex;
+  flex-direction: row;
+  margin: 20px; }
 
 .encabezado {
   display: flex;

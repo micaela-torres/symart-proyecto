@@ -1,76 +1,71 @@
-// Agregar productos
 
-//Agregando clases
+const Productoscompletos = document.getElementById ("Productoscompletos");
 
-class Productos {
-    constructor (codigo, nombre, cantidad, precio) {
-        this.codigo = codigo;
-        this.nombre = nombre;
-        this.cantidad = cantidad;
-        this.precio = precio;
-    }
+// Ingresando tarjeta de productos, modificando el DOM
 
-    calcularinversion(){
-        return this.cantidad * this.precio ;
-    }
-}
-
-
-const producto = [];
-
-let idformulario = document.getElementById('formulariodeproductos');
-
-idformulario.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const codigo = document.getElementById('idcodigo').value;
-    const nombre = document.getElementById('idnombre').value;
-    const cantidad = document.getElementById('idcantidad').value;
-    const precio = document.getElementById('idprecio').value;
-    
-    const newproducto = new Productos (codigo, nombre, cantidad, precio);
-    producto.push(newproducto);
-    localStorage.setItem('Productos', JSON.stringify(producto));
-    idformulario.reset ();
-    mostrarinversion(newproducto);
-    Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Su producto fue agregado',
-        showConfirmButton: false,
-        timer: 1500
-      })
-})
-
-const resultado = document.getElementById("infoinversion");
-const mostrarinversion = (newproducto) => {
-    //operador
-    const cliente = (newproducto.cantidad >= 10) ? "Mayorista" : "Minorista";
-    let aux = '';
-    aux += ` <p> Su inversion es de ${newproducto.calcularinversion()} pesos.</p> 
-                <p>Usted es un cliente ${cliente}</p>`;
-    resultado.innerHTML = aux;
-}
-
-const botondeconsulta = document.getElementById('consulta');
-const verconsultas = document.getElementById('verconsultas');
-
-botondeconsulta.addEventListener('click', () => {
-    const producto = JSON.parse(localStorage.getItem('Productos'));
-    let aux = '';
-    producto.forEach(newproducto => {
-        aux += `<div class="card" style="width: 18rem;">
-                    <div class="card-body">        
-                        <p class="card-title"> Producto: $${newproducto.nombre} </p>
-                        <p class="card-text"> Codigo: ${newproducto.codigo}</p>
+fetch('../json/productos.json')
+.then(response => response.json())
+.then(productos => {
+        productos.forEach((producto, indice) => {
+            Productoscompletos.innerHTML += `
+                <div id="producto${indice}" class="card tarjetadeproductos" style="width: 18rem;">
+                    <img src="../imagenes/productos/${producto.codigo}.jpg" class="card-img-top" alt="100px" widht="100px">
+                    <div class="card-body">
+                        <h5 class="card-title">${producto.producto}</h5>
+                        <p class="card-text">${producto.descripcion}</p>
+                        <h5 class="card-title">$${producto.precio}</h5>
+                        <button id="boton${producto.codigo}" class="btn btn-outline-light"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart-plus" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#a3dfd9" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                    <circle cx="6" cy="19" r="2" />
+                                    <circle cx="17" cy="19" r="2" />
+                                    <path d="M17 17h-11v-14h-2" />
+                                    <path d="M6 5l6.005 .429m7.138 6.573l-.143 .998h-13" />
+                                    <path d="M15 6h6m-3 -3v6" />
+                                </svg></button>
+                            <div class="row card-footer text-muted">
+                                <p> Codigo : ${producto.codigo}</p>
+                                <p> Marca: ${producto.marca}</p>
+                            </div>
                     </div>
-                </div>`
-    verconsultas.innerHTML = aux;            
-    });
-
+                </div>
+            `;
+//Agregamos el evento para el boton
+const boton = document.getElementById(`boton${producto.codigo}`);
+        
+        boton.addEventListener ("click" , () => {
+            console.log("distes click")
+            Toastify({
+                text: "This is a toast",
+                duration: 3000,
+                destination: "https://github.com/apvarun/toastify-js",
+                newWindow: true,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "left", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                  background: "linear-gradient(to right, #00b09b, #96c93d)",
+                },
+                onClick: function(){} // Callback after click
+              }).showToast();
+            })               
+         })
 })
 
-// metodo spread
+//Creo el carrito de compra con una funcion para agregar el producto por su codigo
 
-const marcas = ["Algabo", "Estereo", "Bommetique", "Colgate", "Extralimp", "Iberia"]
+const boton1 = document.getElementById("boton1");
+boton1.addEventListener("click" , (e) => {
 
-console.log (...marcas)
+        Toastify({
+            text: "This is a toast",
+            duration: 3000
+            }).showToast();
+})
+
+const carrito = [];
+
+    const agregarproducto = (codigo) => {
+            Productoscompletos = producto.find(producto => producto.codigo === codigo);
+            carrito.push(producto);
+            }

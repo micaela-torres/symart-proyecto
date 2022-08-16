@@ -54,34 +54,29 @@
 
     <main>
         <div>
-            <h1> Agregando productos a la venta</h1>
+          <h1>Pedi tu pedido</h1>
         </div>
-        <div> 
-          <form class="tarjetadeproductos" action="" id="formulariodeproductos">
-            <input class="form-control" type="number" placeholder="Ingrese codigo del producto"  id="idcodigo">
-            <input class="form-control" type="text" placeholder="Ingrese nombre del producto"  id="idnombre">
-            <input class="form-control" type="number" placeholder="Ingrese la cantidad de productos"  id="idcantidad">
-            <input class="form-control" type="number" placeholder="Ingrese el precio del producto"  id="idprecio">
-            <button class="btn btn-outline-info">Agregar nuevo producto</button>
-          </form>
-        </div>
-
         <div>
-          <div id="infoinversion"></div>
+          <div>
+            <input type="text">
+            <button class="btn btn-outline-success" id="carrito"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#00b341" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <circle cx="6" cy="19" r="2" />
+              <circle cx="17" cy="19" r="2" />
+              <path d="M17 17h-11v-14h-2" />
+              <path d="M6 5l14 1l-1 7h-13" />
+            </svg></button>
+          </div>
+          <div id="Productoscompletos" class="row"></div>
         </div>
-
-        <button class="btn btn-outline-warning" id="consulta">Ver productos</button>
-        <div class="">
-            <div id="verconsultas"> </div>
-        </div>    
-
-
+        <button id="boton1">hola</button>
     </main>
 
     <footer>
         
     </footer>
     <!--Librerias-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.26/dist/sweetalert2.all.min.js"></script>
     <!--Js -->
     <script src="../js/main.js"></script>  
